@@ -1,3 +1,3 @@
 # create_project
 
-Call 'create_project projectname'.
+Call 'python create_project projectname'.
