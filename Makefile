@@ -1,9 +1,14 @@
 SHELL := /bin/bash
-all: env data data/raw
+all: env git data data/raw
 
 env:
 	python3 -m venv env
 	ln -s env/bin/activate activate
+
+git:
+	git init
+	git add .
+	git commit -m "Initial commit"
 
 data:
 	mkdir data
@@ -11,13 +16,17 @@ data:
 data/raw: data
 	mkdir data/raw
 
+
 # Clean commands
 
-distclean: envclean dataclean
+distclean: envclean gitclean dataclean
 
 envclean:
 	rm -f activate
 	rm -rf env
+
+gitclean:
+	rm -rf .git
 
 dataclean: rawclean
 ifneq (, $(wildcard data))
