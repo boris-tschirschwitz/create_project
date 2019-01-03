@@ -1,4 +1,7 @@
 SHELL := /bin/bash
+
+.PHONY: all distclean envclean gitclean dataclean rawclean
+
 all: env .git data data/raw
 
 env:
