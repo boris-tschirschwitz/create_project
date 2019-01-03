@@ -1,0 +1,8 @@
+# Kaggle commands
+
+.PHONY: kaggle
+
+kaggle: data/raw
+ifeq (, $(wildcard data/raw/*))
+	kaggle competitions download -c kagglename -p data/raw/
+endif
