@@ -1,11 +1,11 @@
 SHELL := /bin/bash
-all: env git data data/raw
+all: env .git data data/raw
 
 env:
 	python3 -m venv env
 	ln -s env/bin/activate activate
 
-git:
+.git:
 	git init
 	git add .
 	git commit -m "Initial commit"
