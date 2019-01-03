@@ -40,5 +40,5 @@ endif
 
 rawclean:
 ifneq (, $(wildcard data/raw))
-	rmdir data/raw
+	rm -rf data/raw
 endif
