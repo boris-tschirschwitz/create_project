@@ -1,16 +1,15 @@
 SHELL := /bin/bash
 
-.PHONY: all
+.PHONY: all requirements
 
-all: env .git data data/raw
+all: env requirements .git data data/raw
 
 env:
 	python3 -m venv env
 	ln -s env/bin/activate activate
-ifneq (, $(wildcard requirements.txt))
-	source activate && pip install -r requirements.txt
-endif
 
+requirements: env requirements.txt
+	source activate && pip install -r requirements.txt
 
 .git:
 	git init

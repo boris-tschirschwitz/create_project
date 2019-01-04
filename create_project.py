@@ -44,6 +44,9 @@ def copy_gitignore(name):
 
 
 def create_requirements(name, kaggle):
+    requirementstext = ""
     if kaggle != None:
-        with open(path.join(name, 'requirements.txt'), "w") as targetfile:
-            targetfile.write("kaggle\n")
+        requirementstext = requirementstext + "kaggle\n"
+
+    with open(path.join(name, 'requirements.txt'), "w") as targetfile:
+        targetfile.write(requirementstext)
