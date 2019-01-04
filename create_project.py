@@ -16,6 +16,7 @@ def create_project(projectname, kaggle=None):
     create_folder(projectname)
     copy_makefile(projectname, kaggle)
     copy_gitignore(projectname)
+    create_requirements(projectname, kaggle)
 
 
 def create_folder(name):
@@ -40,3 +41,9 @@ def copy_makefile(name, kaggle):
 def copy_gitignore(name):
     gitignore_path = path.join(path.dirname(__file__), '.gitignore')
     copy(gitignore_path, name)
+
+
+def create_requirements(name, kaggle):
+    if kaggle != None:
+        with open(path.join(name, 'requirements.txt'), "w") as targetfile:
+            targetfile.write("kaggle\n")

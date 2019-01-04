@@ -4,5 +4,5 @@
 
 kaggle: data/raw
 ifeq (, $(wildcard data/raw/*))
-	kaggle competitions download -c kagglename -p data/raw/
+	source activate && kaggle competitions download -c kagglename -p data/raw/
 endif

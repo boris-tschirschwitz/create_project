@@ -7,6 +7,10 @@ all: env .git data data/raw
 env:
 	python3 -m venv env
 	ln -s env/bin/activate activate
+ifneq (, $(wildcard requirements.txt))
+	source activate && pip install -r requirements.txt
+endif
+
 
 .git:
 	git init
