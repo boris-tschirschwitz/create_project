@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 .PHONY: all requirements
 
-all: env requirements .git data data/raw
+all: env requirements data data/raw .git
 
 env:
 	python3 -m venv env
