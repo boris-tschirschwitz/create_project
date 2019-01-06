@@ -2,7 +2,7 @@
 
 .PHONY: kaggle
 
-kaggle: data/raw requirements
+kaggle: | data/raw requirements
 ifeq (, $(wildcard data/raw/*))
 	source activate && kaggle competitions download -c kagglename -p data/raw/
 endif

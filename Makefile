@@ -2,13 +2,13 @@ SHELL := /bin/bash
 
 .PHONY: all requirements
 
-all: env requirements data data/raw .git
+all: env requirements .git | data data/raw
 
 env:
 	python3 -m venv env
 	ln -s env/bin/activate activate
 
-requirements: env requirements.txt
+requirements: requirements.txt | env
 	source activate && pip install -r requirements.txt
 
 .git:
@@ -19,7 +19,7 @@ requirements: env requirements.txt
 data:
 	mkdir data
 
-data/raw: data
+data/raw: | data
 	mkdir data/raw
 
 
