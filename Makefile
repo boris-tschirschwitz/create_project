@@ -2,15 +2,15 @@ SHELL := /bin/bash
 
 .PHONY: all
 
-all: env .requirements.lastrun .git | data data/raw
+all: env/.requirements.lastrun .git | env data data/raw
 
 env:
 	python3 -m venv env
 	ln -s env/bin/activate activate
 
-.requirements.lastrun: requirements.txt | env
+env/.requirements.lastrun: requirements.txt | env
 	source activate && pip install -r requirements.txt
-	touch .requirements.lastrun
+	touch env/.requirements.lastrun
 
 .git:
 	git init
@@ -31,7 +31,6 @@ data/raw: | data
 distclean: envclean gitclean dataclean
 
 envclean:
-	rm -r .requirements.lastrun
 	rm -f activate
 	rm -rf env
 

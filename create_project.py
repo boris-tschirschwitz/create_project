@@ -32,7 +32,7 @@ def copy_makefile(name, kaggle):
         with open(makefile_path) as makefile:
             with open(kaggle_path) as kagglefile:
                 with open(path.join(name, 'Makefile'), "w") as targetfile:
-                    makefiletext = makefile.read().replace('all: env', 'all: env kaggle')
+                    makefiletext = makefile.read().replace('all: ', 'all: kaggle ')
                     kaggletext = kagglefile.read().replace('kagglename', kaggle)
                     fullmakefile = makefiletext + '\n' + kaggletext
                     targetfile.write(fullmakefile)
