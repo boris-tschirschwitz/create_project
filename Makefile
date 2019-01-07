@@ -5,12 +5,12 @@ SHELL := /bin/bash
 all: env/.requirements.lastrun .git | env data data/raw
 
 env:
-	python3 -m venv env
-	ln -s env/bin/activate activate
+	python3 -m venv $@
+	ln -s $@/bin/activate activate
 
 env/.requirements.lastrun: requirements.txt | env
 	source activate && pip install -r requirements.txt
-	touch env/.requirements.lastrun
+	touch $@
 
 .git:
 	git init
@@ -18,10 +18,10 @@ env/.requirements.lastrun: requirements.txt | env
 	git commit -m "Initial commit"
 
 data:
-	mkdir data
+	mkdir $@
 
 data/raw: | data
-	mkdir data/raw
+	mkdir $@
 
 
 # Clean commands
