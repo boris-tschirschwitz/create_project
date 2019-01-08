@@ -1,5 +1,6 @@
 SHELL := /bin/bash
 
+.DELETE_ON_ERROR:
 .PHONY: all
 
 all: env/.requirements.lastrun .git | env data data/raw
