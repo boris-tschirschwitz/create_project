@@ -29,7 +29,10 @@ data/raw: | data
 
 .PHONY: distclean envclean gitclean dataclean rawclean
 
-distclean: envclean gitclean dataclean
+distclean: envclean gitclean alldataclean
+
+# clean everything that can be recreated from raw data
+clean: processeddataclean
 
 envclean:
 	rm -f activate
@@ -38,12 +41,18 @@ envclean:
 gitclean:
 	rm -rf .git
 
-dataclean: rawclean
+alldataclean: rawclean
 ifneq (, $(wildcard data))
-	rmdir data
+	rm -rf data
 endif
 
 rawclean:
 ifneq (, $(wildcard data/raw))
 	rm -rf data/raw
+endif
+
+allbutraw := $(filter-out data/raw,$(wildcard data/*))
+processeddataclean:
+ifneq (, $(allbutraw))
+	rm -rf $(allbutraw)
 endif
