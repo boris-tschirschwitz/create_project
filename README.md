@@ -1,8 +1,8 @@
 # create_project
 
 ```
-$ python3 create_project/create_project -h
-usage: create_project [-h] [-k [KAGGLE]] projectname
+$ python3 create_project -h
+usage: create_project [-h] projectname [-k [KAGGLE]]
 
 Create a Python project skeleton.
 
