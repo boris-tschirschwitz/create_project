@@ -1,11 +1,11 @@
-# create_project
+#create_project
 
-
+##Usage
 This follows the project structure of
 [Cookiecutter Data Science -- Directory Structure](https://drivendata.github.io/cookiecutter-data-science/#directory-structure)
 
 Example: Set up a project folder for the "titanic" Kaggle competition.
-(If you have already joined the competition at Kaggle.)
+(If you have already joined the competition at Kaggle and set up a local kaggle.json, see [Create kaggle.json](##Create kaggle.json).)
 
 ```
 $ python3 create_project titanic -k
@@ -31,7 +31,16 @@ To remove all processed data call:
 $ make clean
 ```
 
-Help:
+##Create kaggle.json
+The `kaggle` command uses the local file `~/.kaggle/kaggle.json` for authentication.
+
+To create this file log into your account at [kaggle](https://www.kaggle.com),
+go to "My account" and  Click on "Create new API Token".
+This will download the file 'kaggle.json'.
+
+Copy this file to `~/.kaggle/kaggle.json`.
+
+##Help:
 ```
 $ python3 create_project -h
 usage: python3 create_project [-h] projectname [-k [KAGGLE]]
