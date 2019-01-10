@@ -5,7 +5,7 @@ This follows the project structure of
 [Cookiecutter Data Science -- Directory Structure](https://drivendata.github.io/cookiecutter-data-science/#directory-structure)
 
 Example: Set up a project folder for the "titanic" Kaggle competition.
-(If you have already joined the competition at Kaggle and set up a local kaggle.json, see [Create kaggle.json](#Create kaggle.json).)
+(If you have already joined the competition at Kaggle and set up a local kaggle.json, see [Create kaggle.json](#create-kaggle.json).)
 
 ```
 $ python3 create_project titanic -k
