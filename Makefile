@@ -27,9 +27,7 @@ data/raw: | data
 
 # Clean commands
 
-.PHONY: distclean envclean gitclean dataclean rawclean
-
-distclean: envclean gitclean alldataclean
+.PHONY: envclean gitclean dataclean rawclean
 
 # clean everything that can be recreated from raw data
 clean: processeddataclean
