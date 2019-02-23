@@ -25,7 +25,6 @@ data:
 data/raw: | data
 	mkdir $@
 
-
 # Clean commands
 
 .PHONY: envclean gitclean dataclean rawclean
