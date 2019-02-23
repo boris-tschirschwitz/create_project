@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 .DELETE_ON_ERROR:
-.PHONY: all
+.PHONY: all pipupgrade
 
 all: env/.requirements.lastrun .git | env data data/raw
 
@@ -18,6 +18,10 @@ env/.requirements.lastrun: requirements.txt | env
 	git init
 	git add .
 	git commit -m "Initial commit"
+
+pipupgrade: env/.requirements.lastrun
+	source activate && pip install --upgrade pip
+	source activate && pip install -U -r requirements.txt
 
 data:
 	mkdir $@
