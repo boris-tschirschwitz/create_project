@@ -1,22 +1,24 @@
 # create_project
 
 ## Usage
+
 This follows the project structure of
 [Cookiecutter Data Science -- Directory Structure](https://drivendata.github.io/cookiecutter-data-science/#directory-structure)
 
 Example: Set up a project folder for the "titanic" Kaggle competition.
 (If you have already joined the competition at Kaggle and set up a local kaggle.json, see [Create kaggle.json](#create-kagglejson).)
 
-```
-$ python3 create_project titanic -k
-$ cd titanic
-$ make
+```bash
+python3 create_project titanic -k
+cd titanic
+make
 ```
 
 Now the raw Kaggle data can be found in 'data/raw'.
 Switch to the project's virtual environment with
-```
-$ source activate.
+
+```bash
+source activate.
 ```
 
 You'll want to add more Python packages to your project
@@ -27,11 +29,13 @@ The idea now is to next add new targets to the Makefile
 to process the raw data, etc.
 
 To remove all processed data call:
-```
-$ make clean
+
+```bash
+make clean
 ```
 
 ## Create kaggle.json
+
 The `kaggle` command uses the local file `~/.kaggle/kaggle.json` for authentication.
 
 To create this file log into your account at [kaggle](https://www.kaggle.com),
@@ -41,7 +45,8 @@ This will download the file 'kaggle.json'.
 Copy this file to `~/.kaggle/kaggle.json`.
 
 ## Help:
-```
+
+```bash
 $ python3 create_project -h
 usage: python3 create_project [-h] projectname [-k [KAGGLE]]
 
@@ -55,4 +60,4 @@ optional arguments:
   -k [KAGGLE], --kaggle [KAGGLE]
                         Download kaggle data for competition "KAGGLE". If
                         "KAGGLE" is empty, projectname is used.
-```                        
+```
