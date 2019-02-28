@@ -6,7 +6,9 @@ def create_project(projectname, kaggle=None):
     """
     Create a project folder skeleton named 'name'.
 
-    Copy a basic Makefile and gitignore into the folder.
+    1. Create a Readme.md with the project name as title.
+    2. Copy a basic Makefile and gitignore into the folder.
+    3. Create a requirements.txt.
     If 'kaggle' is provided, download data for Kaggle competition 'kaggle'.
 
     :param projectname: The project name.
@@ -14,6 +16,7 @@ def create_project(projectname, kaggle=None):
     """
 
     create_folder(projectname)
+    create_readme(projectname)
     copy_makefile(projectname, kaggle)
     copy_gitignore(projectname)
     create_requirements(projectname, kaggle)
@@ -22,6 +25,11 @@ def create_project(projectname, kaggle=None):
 def create_folder(name):
     mkdir(name)
 
+
+def create_readme(name):
+    with open(path.join(name, 'Readme.md'), "w") as targetfile:
+        readmetext = '# ' + name + '\n'
+        targetfile.write(readmetext)
 
 def copy_makefile(name, kaggle):
     makefile_path = path.join(path.dirname(__file__), 'Makefile')
